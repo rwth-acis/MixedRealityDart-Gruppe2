@@ -478,7 +478,7 @@ MonoBehaviour:
   spawnOnAwake: 1
   destroyWithSpawner: 1
   overwriteExistingInstances: 1
-  maxNumberOfInstances: 0
+  maxNumberOfInstances: 1
 --- !u!1 &2058264723
 GameObject:
   m_ObjectHideFlags: 0
