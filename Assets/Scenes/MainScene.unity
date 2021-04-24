@@ -441,6 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021004411}
   - component: {fileID: 2021004412}
+  - component: {fileID: 2021004413}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -479,6 +480,18 @@ MonoBehaviour:
   destroyWithSpawner: 1
   overwriteExistingInstances: 1
   maxNumberOfInstances: 1
+--- !u!114 &2021004413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021004410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7781a3de4dded33489429a14038afbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058264723
 GameObject:
   m_ObjectHideFlags: 0
