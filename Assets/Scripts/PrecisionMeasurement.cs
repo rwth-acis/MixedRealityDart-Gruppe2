@@ -29,12 +29,9 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
                     // if the pointer actually gives a result: do something with it
                     if (p.Result != null)
                     {
-                        // TODO: enter your code here
-                        // ===========================================
                         Vector3 pointerEndPosition = p.Result.Details.Point;
                         float distanceToTargetCenter = (pointerEndPosition - targetCenterTransform.position).magnitude;
-                        Debug.Log(distanceToTargetCenter);
-                        // ===========================================
+                        // Debug.Log(distanceToTargetCenter);
                     }
 
                 }
