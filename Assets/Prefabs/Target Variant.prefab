@@ -88,6 +88,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCenterTransform: {fileID: 1603229488}
+  dartPrefab: {fileID: 3418044477039773431, guid: 929e6a6989728c2428448e4f2e32137c,
+    type: 3}
+  targetPrefab: {fileID: 6371830974393661521, guid: 34714cb9f1daa664e9ed3f853cccc8ef,
+    type: 3}
 --- !u!1001 &6101290434059666688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 98b45b07504c6c045a6de202e3b17c3e,
         type: 3}
       propertyPath: m_Name
-      value: Target
+      value: Target Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b45b07504c6c045a6de202e3b17c3e, type: 3}

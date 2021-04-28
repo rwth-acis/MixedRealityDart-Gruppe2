@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using i5.Toolkit.Core.Spawners;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit;
@@ -44,7 +45,7 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        
+        Instantiate(dartPrefab, targetPrefab.transform);
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -60,11 +61,6 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     // Start is called before the first frame update
     void Start()
     {
-        dartPrefab = Instantiate(dartPrefab, new Vector3(0, 0, 2), Quaternion.identity);
-        if (targetPrefab != null)
-        {
-            dartPrefab.transform.parent = targetPrefab.transform;
-        }
     }
 
     // Update is called once per frame
