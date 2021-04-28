@@ -9,7 +9,9 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
 {
     //the transform of the center of the target
     [SerializeField] private Transform targetCenterTransform;
+
     public GameObject dartPrefab;
+    public GameObject targetPrefab;
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
@@ -58,7 +60,11 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(dartPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+        dartPrefab = Instantiate(dartPrefab, new Vector3(0, 0, 2), Quaternion.identity);
+        if (targetPrefab != null)
+        {
+            dartPrefab.transform.parent = targetPrefab.transform;
+        }
     }
 
     // Update is called once per frame
