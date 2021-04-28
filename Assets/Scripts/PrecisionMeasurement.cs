@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using i5.Toolkit.Core.Spawners;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit;
@@ -11,9 +10,8 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     //the transform of the center of the target
     [SerializeField] private Transform targetCenterTransform;
 
-    public GameObject dartPrefab;
+    [SerializeField]private GameObject dartPrefab;
     private GameObject currentDart;
-    public GameObject targetPrefab;
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
@@ -34,10 +32,13 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
                     // if the pointer actually gives a result: do something with it
                     if (p.Result != null)
                     {
-                        Vector3 pointerEndPosition = p.Result.Details.Point;
-                        float distanceToTargetCenter = (pointerEndPosition - targetCenterTransform.position).magnitude;
-                        // Debug.Log(distanceToTargetCenter);
-                        dartPrefab = Instantiate(dartPrefab, pointerEndPosition, Quaternion.identity);
+                        if(currentDart == null){
+                            Vector3 pointerEndPosition = p.Result.Details.Point;
+                            float distanceToTargetCenter = (pointerEndPosition - targetCenterTransform.position).magnitude;
+                            Debug.Log(distanceToTargetCenter);
+                            currentDart = Instantiate(dartPrefab, pointerEndPosition, Quaternion.identity);
+                            currentDart.transform.parent = this.transform;
+                        }
                     }
 
                 }
@@ -47,7 +48,7 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        Instantiate(dartPrefab, targetPrefab.transform);
+        
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
@@ -63,7 +64,6 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
         /*
         dartPrefab = Instantiate(dartPrefab, new Vector3(0, 0, 2), Quaternion.identity);
         if (targetPrefab != null)
@@ -71,8 +71,6 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
             dartPrefab.transform.parent = targetPrefab.transform;
         }
         */
-=======
->>>>>>> 329d256b2e9ee5922770b5f0130902496b926d82
     }
 
     // Update is called once per frame

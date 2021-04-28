@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
             if (spawner.Spawn())
             {
                 Debug.Log("Spawner did spawning.");
-                var pos = new Vector3(UnityEngine.Random.Range(0, 2), UnityEngine.Random.Range(0, 2), 2);
+                var pos = new Vector3(UnityEngine.Random.Range(0, 3), UnityEngine.Random.Range(0, 3), 2);
 
                 var target = spawner.MostRecentlySpawnedObject;
                 if (target)
