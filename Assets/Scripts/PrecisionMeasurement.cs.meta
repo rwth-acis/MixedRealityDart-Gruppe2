@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6071b3a4d288c5c4fb7fc2003b4622b2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - targetCenterTransform: {instanceID: 0}
+  - dartPrefab: {fileID: 3418044477039773431, guid: 929e6a6989728c2428448e4f2e32137c,
+      type: 3}
+  - targetPrefab: {fileID: 6371830974393661521, guid: 34714cb9f1daa664e9ed3f853cccc8ef,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
