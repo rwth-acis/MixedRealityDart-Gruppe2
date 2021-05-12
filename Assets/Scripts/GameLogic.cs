@@ -9,11 +9,14 @@ using Microsoft.MixedReality.Toolkit.UI;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private float spawnInterval;
+    [SerializeField] private int targetsPerGame;
+    private int remainingTargets;
     private float remainingTime;
     private bool gameStarted = false;
     [SerializeField] private TextMeshPro textMeshPro;
     [SerializeField] private PressableButtonHoloLens2 startButton;
     [SerializeField] private Interactable startButtonInteractability;
+    [SerializeField] private TextMeshPro countDownText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,7 @@ public class GameLogic : MonoBehaviour
 
     void SpawnTarget()
     {
-
+        
         Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
         if (spawner != null)
         {
@@ -50,7 +53,15 @@ public class GameLogic : MonoBehaviour
             if (remainingTime <= 0)
             {
                 remainingTime = spawnInterval;
-                SpawnTarget();
+                if (remainingTargets == 0){
+                    EndGame();
+                }
+                else{
+                    
+                    SpawnTarget();
+                    remainingTargets --;
+                    countDownText.text = "Remaining Targets:" + remainingTargets;
+                }
             }
         }
     }
@@ -59,5 +70,15 @@ public class GameLogic : MonoBehaviour
         gameStarted = true;
         textMeshPro.text = "Get Ready!";
         startButtonInteractability.enabled = false;
+        remainingTargets = targetsPerGame;
+        countDownText.text = "Remaining Targets:" + remainingTargets;
+    }
+
+    public void EndGame(){
+        gameStarted = false;
+        textMeshPro.text = "Press Play!";
+        startButtonInteractability.enabled = true;
+        Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
+        GameObject.Destroy(spawner.MostRecentlySpawnedObject);
     }
 }
