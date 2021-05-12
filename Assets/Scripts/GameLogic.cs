@@ -17,6 +17,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private PressableButtonHoloLens2 startButton;
     [SerializeField] private Interactable startButtonInteractability;
     [SerializeField] private TextMeshPro countDownText;
+    // [SerializeField] private SpeechInputHandler speechInputHandler;
 
     // Start is called before the first frame update
     void Start()
