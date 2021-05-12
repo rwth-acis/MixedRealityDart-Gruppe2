@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using i5.Toolkit.Core.Spawners;
 using Microsoft.MixedReality.Toolkit.OpenVR.Headers;
 using UnityEngine;
+using TMPro;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private float spawnInterval;
     private float remainingTime;
     private bool gameStarted = false;
+    [SerializeField] private TextMeshPro textMeshPro;
+    [SerializeField] private PressableButtonHoloLens2 startButton;
+    [SerializeField] private Interactable startButtonInteractability;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +30,7 @@ public class GameLogic : MonoBehaviour
             if (spawner.Spawn())
             {
                 Debug.Log("Spawner did spawning.");
-                var pos = new Vector3(UnityEngine.Random.Range(0, 3), UnityEngine.Random.Range(0, 3), 2);
+                var pos = new Vector3(UnityEngine.Random.Range(0f, 3f), UnityEngine.Random.Range(0f, 3f), 2);
 
                 var target = spawner.MostRecentlySpawnedObject;
                 if (target)
@@ -52,5 +57,7 @@ public class GameLogic : MonoBehaviour
 
     public void StartGame(){
         gameStarted = true;
+        textMeshPro.text = "Get Ready!";
+        startButtonInteractability.enabled = false;
     }
 }
