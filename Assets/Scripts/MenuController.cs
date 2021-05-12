@@ -27,11 +27,13 @@ public class MenuController : MonoBehaviour
             {
                 // Turn it on if it is already off
                 solverHandler.enabled = true;
+                Debug.Log("Turning on the solver");
             }
             else
             {
                 // Turn it off if it is already on
                 solverHandler.enabled = false;
+                Debug.Log("Turning off the solver");
             }
         }
     }
