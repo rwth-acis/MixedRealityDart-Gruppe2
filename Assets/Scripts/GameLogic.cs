@@ -4,10 +4,11 @@ using i5.Toolkit.Core.Spawners;
 using Microsoft.MixedReality.Toolkit.OpenVR.Headers;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameLogic : MonoBehaviour
 {
     [SerializeField] private float spawnInterval;
     private float remainingTime;
+    private bool gameStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        remainingTime -= Time.deltaTime;
-        if (remainingTime <= 0)
-        {
-            remainingTime = spawnInterval;
-            SpawnTarget();
+        if(gameStarted){
+            remainingTime -= Time.deltaTime;
+            if (remainingTime <= 0)
+            {
+                remainingTime = spawnInterval;
+                SpawnTarget();
+            }
         }
+    }
+
+    public void StartGame(){
+        gameStarted = true;
     }
 }
