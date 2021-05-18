@@ -17,6 +17,9 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private PressableButtonHoloLens2 startButton;
     [SerializeField] private Interactable startButtonInteractability;
     [SerializeField] private TextMeshPro countDownText;
+
+    [SerializeField] private Spawner spawner;
+
     // [SerializeField] private SpeechInputHandler speechInputHandler;
 
     // Start is called before the first frame update
@@ -27,8 +30,7 @@ public class GameLogic : MonoBehaviour
 
     void SpawnTarget()
     {
-        
-        Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
+        // Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
         if (spawner != null)
         {
             if (spawner.Spawn())
@@ -41,7 +43,6 @@ public class GameLogic : MonoBehaviour
                 {
                     target.transform.position = pos;
                 }
-
             }
         }
     }
@@ -49,25 +50,28 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameStarted){
+        if (gameStarted)
+        {
             remainingTime -= Time.deltaTime;
             if (remainingTime <= 0)
             {
                 remainingTime = spawnInterval;
-                if (remainingTargets == 0){
+                if (remainingTargets == 0)
+                {
                     EndGame();
                 }
-                else{
-                    
+                else
+                {
                     SpawnTarget();
-                    remainingTargets --;
+                    remainingTargets--;
                     countDownText.text = "Remaining Targets:" + remainingTargets;
                 }
             }
         }
     }
 
-    public void StartGame(){
+    public void StartGame()
+    {
         gameStarted = true;
         textMeshPro.text = "Get Ready!";
         startButtonInteractability.enabled = false;
@@ -75,7 +79,8 @@ public class GameLogic : MonoBehaviour
         countDownText.text = "Remaining Targets:" + remainingTargets;
     }
 
-    public void EndGame(){
+    public void EndGame()
+    {
         gameStarted = false;
         textMeshPro.text = "Press Play!";
         startButtonInteractability.enabled = true;

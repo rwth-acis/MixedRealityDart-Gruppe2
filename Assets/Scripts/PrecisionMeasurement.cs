@@ -13,6 +13,18 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     [SerializeField]private GameObject dartPrefab;
     private GameObject currentDart;
 
+    public void OnPointerDown(MixedRealityPointerEventData eventData)
+    {
+    }
+
+    public void OnPointerDragged(MixedRealityPointerEventData eventData)
+    {
+    }
+
+    public void OnPointerUp(MixedRealityPointerEventData eventData)
+    {
+    }
+
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
         // go over every input source
