@@ -13,6 +13,18 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
     [SerializeField]private GameObject dartPrefab;
     private GameObject currentDart;
 
+    public void OnPointerDown(MixedRealityPointerEventData eventData)
+    {
+    }
+
+    public void OnPointerDragged(MixedRealityPointerEventData eventData)
+    {
+    }
+
+    public void OnPointerUp(MixedRealityPointerEventData eventData)
+    {
+    }
+
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
         // go over every input source
@@ -44,38 +56,5 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
                 }
             }
         }
-    }
-
-    public void OnPointerDown(MixedRealityPointerEventData eventData)
-    {
-        
-    }
-
-    public void OnPointerDragged(MixedRealityPointerEventData eventData)
-    {
-        
-    }
-
-    public void OnPointerUp(MixedRealityPointerEventData eventData)
-    {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        /*
-        dartPrefab = Instantiate(dartPrefab, new Vector3(0, 0, 2), Quaternion.identity);
-        if (targetPrefab != null)
-        {
-            dartPrefab.transform.parent = targetPrefab.transform;
-        }
-        */
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
