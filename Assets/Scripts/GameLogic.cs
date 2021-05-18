@@ -84,7 +84,7 @@ public class GameLogic : MonoBehaviour
         gameStarted = false;
         textMeshPro.text = "Press Play!";
         startButtonInteractability.enabled = true;
-        Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
+        // Spawner spawner = gameObject.GetComponent(typeof(Spawner)) as Spawner;
         GameObject.Destroy(spawner.MostRecentlySpawnedObject);
     }
 }
